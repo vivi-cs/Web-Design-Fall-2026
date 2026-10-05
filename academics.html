@@ -1,0 +1,962 @@
+
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academics | SUNY New Paltz</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --navy: #002855;
+      --blue: #0057a8;
+      --gold: #f4b41a;
+      --light: #f5f7fa;
+      --dark: #172033;
+      --gray: #667085;
+      --white: #ffffff;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    /* NAVIGATION */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      height: 76px;
+      background: var(--navy);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 7%;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .apply-btn {
+      background: var(--gold);
+      color: var(--navy) !important;
+      padding: 11px 18px;
+      border-radius: 5px;
+    }
+
+    .menu {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      color: white;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(0,40,85,.95),
+          rgba(0,40,85,.65)
+        ),
+        url("https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1800&q=80")
+        center/cover;
+    }
+
+    .hero-content {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 80px 0;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: clamp(50px, 7vw, 80px);
+      line-height: 1;
+      max-width: 850px;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      font-size: 20px;
+      color: #e6edf5;
+    }
+
+    /* INTRO */
+    .intro {
+      padding: 90px 7%;
+    }
+
+    .intro-container {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .intro h2 {
+      color: var(--navy);
+      font-size: 44px;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .intro p {
+      color: var(--gray);
+      font-size: 17px;
+      margin-bottom: 17px;
+    }
+
+    .intro-image {
+      height: 440px;
+      border-radius: 10px;
+      background:
+        url("https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1000&q=80")
+        center/cover;
+    }
+
+    /* PROGRAMS */
+    .programs {
+      background: var(--light);
+      padding: 90px 7%;
+    }
+
+    .section-heading {
+      max-width: 750px;
+      margin: 0 auto 50px;
+      text-align: center;
+    }
+
+    .section-heading h2 {
+      color: var(--navy);
+      font-size: 43px;
+      line-height: 1.15;
+      margin-bottom: 15px;
+    }
+
+    .section-heading p {
+      color: var(--gray);
+      font-size: 18px;
+    }
+
+    .program-grid {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .program-card {
+      background: white;
+      border-radius: 8px;
+      padding: 32px;
+      border-top: 5px solid var(--gold);
+      box-shadow: 0 5px 20px rgba(0,0,0,.06);
+      transition: .25s;
+    }
+
+    .program-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 30px rgba(0,0,0,.12);
+    }
+
+    .icon {
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #eaf2fb;
+      color: var(--blue);
+      border-radius: 50%;
+      font-size: 25px;
+      margin-bottom: 18px;
+    }
+
+    .program-card h3 {
+      color: var(--navy);
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .program-card p {
+      color: var(--gray);
+      margin-bottom: 18px;
+    }
+
+    .program-card a {
+      color: var(--blue);
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    /* EXPERIENCE */
+    .experience {
+      padding: 90px 7%;
+    }
+
+    .experience-container {
+      max-width: 1200px;
+      margin: auto;
+      background: var(--navy);
+      border-radius: 12px;
+      overflow: hidden;
+      color: white;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .experience-image {
+      min-height: 430px;
+      background:
+        url("https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1000&q=80")
+        center/cover;
+    }
+
+    .experience-content {
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .experience-content h2 {
+      font-size: 40px;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .experience-content p {
+      color: #d9e3ef;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      width: fit-content;
+      padding: 13px 24px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    /* LEARNING */
+    .learning {
+      padding: 90px 7%;
+      background: var(--light);
+    }
+
+    .learning-grid {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .learning-card {
+      background: white;
+      padding: 35px;
+      border-radius: 8px;
+    }
+
+    .learning-card span {
+      font-size: 32px;
+    }
+
+    .learning-card h3 {
+      color: var(--navy);
+      margin: 14px 0 8px;
+      font-size: 22px;
+    }
+
+    .learning-card p {
+      color: var(--gray);
+    }
+
+    /* CTA */
+    .cta {
+      padding: 90px 7%;
+      text-align: center;
+      color: white;
+      background:
+        linear-gradient(
+          100deg,
+          rgba(0,40,85,.97),
+          rgba(0,87,168,.9)
+        ),
+        url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1600&q=80")
+        center/cover;
+    }
+
+    .cta-content {
+      max-width: 750px;
+      margin: auto;
+    }
+
+    .cta h2 {
+      font-size: 46px;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .cta p {
+      color: #dce7f3;
+      font-size: 18px;
+      margin-bottom: 28px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #001b3a;
+      color: white;
+      padding: 60px 7% 25px;
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 45px;
+    }
+
+    footer h3 {
+      color: var(--gold);
+      margin-bottom: 15px;
+    }
+
+    footer p {
+      color: #c8d3df;
+    }
+
+    footer ul {
+      list-style: none;
+    }
+
+    footer li {
+      margin-bottom: 9px;
+    }
+
+    footer a {
+      color: #dce5ee;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 40px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,.15);
+      display: flex;
+      justify-content: space-between;
+      color: #aebdcc;
+      font-size: 14px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 850px) {
+
+      nav {
+        padding: 0 5%;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        width: 100%;
+        background: var(--navy);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 25px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu {
+        display: block;
+      }
+
+      .intro-container,
+      .experience-container {
+        grid-template-columns: 1fr;
+      }
+
+      .program-grid,
+      .learning-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-image {
+        min-height: 300px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .intro h2,
+      .section-heading h2 {
+        font-size: 35px;
+      }
+
+      .experience-content {
+        padding: 40px 30px;
+      }
+
+      .experience-content h2,
+      .cta h2 {
+        font-size: 34px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+
+    <div class="logo">
+      <div class="logo-mark">NP</div>
+      <span>SUNY NEW PALTZ</span>
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#programs">Academics</a></li>
+      <li><a href="#learning">Student Experience</a></li>
+      <li><a href="#experience">Research</a></li>
+      <li>
+        <a href="#apply" class="apply-btn">Apply Now</a>
+      </li>
+    </ul>
+
+    <div class="menu" onclick="toggleMenu()">☰</div>
+
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+
+    <div class="hero-content">
+
+      <div class="eyebrow">Academics</div>
+
+      <h1>Learn boldly. Think deeply.</h1>
+
+      <p>
+        Explore an academic experience that encourages curiosity,
+        creativity, collaboration, and the confidence to turn ideas
+        into action.
+      </p>
+
+    </div>
+
+  </header>
+
+  <!-- INTRO -->
+  <section class="intro">
+
+    <div class="intro-container">
+
+      <div>
+
+        <div class="eyebrow">Academic Excellence</div>
+
+        <h2>
+          Education that goes beyond the classroom.
+        </h2>
+
+        <p>
+          At SUNY New Paltz, learning is an active experience.
+          Students work closely with faculty, explore new ideas,
+          and apply what they learn to real-world challenges.
+        </p>
+
+        <p>
+          With programs spanning the arts, sciences, business,
+          education, technology, and liberal arts, you can build
+          an education around the questions and subjects that
+          inspire you.
+        </p>
+
+        <p>
+          Small classes, collaborative projects, research,
+          internships, and experiential learning help prepare
+          students for meaningful careers and lifelong learning.
+        </p>
+
+      </div>
+
+      <div class="intro-image"></div>
+
+    </div>
+
+  </section>
+
+  <!-- PROGRAMS -->
+  <section class="programs" id="programs">
+
+    <div class="section-heading">
+
+      <div class="eyebrow">Explore Your Options</div>
+
+      <h2>
+        Find the field that excites you.
+      </h2>
+
+      <p>
+        Discover areas of study designed to challenge your
+        thinking and prepare you for what's next.
+      </p>
+
+    </div>
+
+    <div class="program-grid">
+
+      <div class="program-card">
+
+        <div class="icon">🎨</div>
+
+        <h3>Arts & Design</h3>
+
+        <p>
+          Turn creativity into a career through visual arts,
+          design, theater, music, and media.
+        </p>
+
+        <a href="#">View Programs →</a>
+
+      </div>
+
+      <div class="program-card">
+
+        <div class="icon">💼</div>
+
+        <h3>Business</h3>
+
+        <p>
+          Develop leadership, analytical, and entrepreneurial
+          skills for a changing global economy.
+        </p>
+
+        <a href="#">View Programs →</a>
+
+      </div>
+
+      <div class="program-card">
+
+        <div class="icon">🔬</div>
+
+        <h3>Science</h3>
+
+        <p>
+          Ask big questions and explore the natural world
+          through research and experimentation.
+        </p>
+
+        <a href="#">View Programs →</a>
+
+      </div>
+
+      <div class="program-card">
+
+        <div class="icon">📖</div>
+
+        <h3>Liberal Arts</h3>
+
+        <p>
+          Build critical thinking, communication, and
+          problem-solving skills across disciplines.
+        </p>
+
+        <a href="#">View Programs →</a>
+
+      </div>
+
+      <div class="program-card">
+
+        <div class="icon">🍎</div>
+
+        <h3>Education</h3>
+
+        <p>
+          Prepare to inspire the next generation through
+          innovative teaching and hands-on experiences.
+        </p>
+
+        <a href="#">View Programs →</a>
+
+      </div>
+
+      <div class="program-card">
+
+        <div class="icon">❤️</div>
+
+        <h3>Health & Human Services</h3>
+
+        <p>
+          Prepare for careers dedicated to improving people's
+          health, wellbeing, and quality of life.
+        </p>
+
+        <a href="#">View Programs →</a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FEATURE -->
+  <section class="experience" id="experience">
+
+    <div class="experience-container">
+
+      <div class="experience-image"></div>
+
+      <div class="experience-content">
+
+        <div class="eyebrow">Hands-On Learning</div>
+
+        <h2>
+          Make your education an experience.
+        </h2>
+
+        <p>
+          Your education shouldn't stop when class ends.
+          Work with faculty on research, participate in
+          internships, collaborate on creative projects,
+          and explore opportunities beyond campus.
+        </p>
+
+        <a href="#" class="btn btn-primary">
+          Explore Opportunities
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- LEARNING -->
+  <section class="learning" id="learning">
+
+    <div class="section-heading">
+
+      <div class="eyebrow">The Student Experience</div>
+
+      <h2>
+        Learn in ways that matter.
+      </h2>
+
+      <p>
+        Build knowledge while developing the skills you need
+        for life after college.
+      </p>
+
+    </div>
+
+    <div class="learning-grid">
+
+      <div class="learning-card">
+
+        <span>🔎</span>
+
+        <h3>Research</h3>
+
+        <p>
+          Work alongside faculty and investigate questions
+          that matter to you and your field.
+        </p>
+
+      </div>
+
+      <div class="learning-card">
+
+        <span>🌎</span>
+
+        <h3>Global Learning</h3>
+
+        <p>
+          Expand your perspective through international
+          programs, cultural experiences, and diverse communities.
+        </p>
+
+      </div>
+
+      <div class="learning-card">
+
+        <span>🤝</span>
+
+        <h3>Collaboration</h3>
+
+        <p>
+          Learn from classmates and faculty through teamwork,
+          discussion, and interdisciplinary projects.
+        </p>
+
+      </div>
+
+      <div class="learning-card">
+
+        <span>💡</span>
+
+        <h3>Innovation</h3>
+
+        <p>
+          Turn ideas into solutions by experimenting,
+          creating, designing, and solving real problems.
+        </p>
+
+      </div>
+
+      <div class="learning-card">
+
+        <span>🏢</span>
+
+        <h3>Internships</h3>
+
+        <p>
+          Gain professional experience and connect classroom
+          knowledge with the world of work.
+        </p>
+
+      </div>
+
+      <div class="learning-card">
+
+        <span>🎓</span>
+
+        <h3>Graduate Study</h3>
+
+        <p>
+          Continue your academic journey by deepening your
+          expertise and pursuing advanced study.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="apply">
+
+    <div class="cta-content">
+
+      <div class="eyebrow">Your Future Starts Here</div>
+
+      <h2>
+        Ready to explore what's possible?
+      </h2>
+
+      <p>
+        Find a program that matches your interests,
+        goals, and ambitions.
+      </p>
+
+      <a href="#" class="btn btn-primary">
+        Explore All Programs
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="footer-grid">
+
+      <div>
+
+        <div class="logo" style="margin-bottom:20px;">
+          <div class="logo-mark">NP</div>
+          <span>SUNY NEW PALTZ</span>
+        </div>
+
+        <p>
+          A vibrant university community in the heart
+          of New York's Hudson Valley.
+        </p>
+
+      </div>
+
+      <div>
+
+        <h3>Academics</h3>
+
+        <ul>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#">Majors & Minors</a></li>
+          <li><a href="#">Graduate Programs</a></li>
+          <li><a href="#">Research</a></li>
+        </ul>
+
+      </div>
+
+      <div>
+
+        <h3>Resources</h3>
+
+        <ul>
+          <li><a href="#">Academic Calendar</a></li>
+          <li><a href="#">Library</a></li>
+          <li><a href="#">Advising</a></li>
+          <li><a href="#">Academic Support</a></li>
+        </ul>
+
+      </div>
+
+      <div>
+
+        <h3>Admissions</h3>
+
+        <ul>
+          <li><a href="#">Apply</a></li>
+          <li><a href="#">Visit Campus</a></li>
+          <li><a href="#">Financial Aid</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 SUNY New Paltz — Demo Website</span>
+      <span>New Paltz, New York</span>
+    </div>
+
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+
+    function toggleMenu() {
+      document
+        .getElementById("navLinks")
+        .classList.toggle("active");
+    }
+
+    document
+      .querySelectorAll(".nav-links a")
+      .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+          document
+            .getElementById("navLinks")
+            .classList.remove("active");
+
+        });
+
+      });
+
+  </script>
+
+</body>
+</html>
+```
+
+ 

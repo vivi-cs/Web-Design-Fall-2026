@@ -1,0 +1,1029 @@
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SUNY New Paltz | Discover Your Future</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --navy: #002855;
+      --blue: #0057a8;
+      --gold: #f4b41a;
+      --light: #f5f7fa;
+      --dark: #172033;
+      --gray: #667085;
+      --white: #ffffff;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--dark);
+      line-height: 1.6;
+      background: white;
+    }
+
+    /* NAVIGATION */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--navy);
+      color: white;
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 7%;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      background: var(--gold);
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-weight: 900;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      transition: .2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gray);
+    }
+
+    .nav-button {
+      background: var(--gold);
+      color: var(--navy) !important;
+      padding: 11px 18px;
+      border-radius: 5px;
+    }
+
+    .menu {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 650px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      color: white;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(0,40,85,.95), rgba(0,40,85,.65), rgba(0,40,85,.25)),
+        url("https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1800&q=80")
+        center/cover;
+    }
+
+    .hero-content {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 70px 0;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 7vw, 82px);
+      line-height: 1;
+      max-width: 850px;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      max-width: 650px;
+      font-size: 20px;
+      color: #e9eef5;
+      margin-bottom: 35px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 25px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: .25s;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: #ffd05a;
+    }
+
+    .btn-outline {
+      border: 2px solid white;
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: var(--navy);
+    }
+
+    /* QUICK LINKS */
+    .quick-links {
+      background: white;
+      margin-top: -55px;
+      position: relative;
+      z-index: 5;
+      width: 86%;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 10px 35px rgba(0,0,0,.15);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .quick-link {
+      padding: 27px 20px;
+      text-align: center;
+      text-decoration: none;
+      color: var(--navy);
+      border-right: 1px solid #ddd;
+      transition: .2s;
+    }
+
+    .quick-link:last-child {
+      border: none;
+    }
+
+    .quick-link:hover {
+      background: var(--light);
+    }
+
+    .quick-link .icon {
+      font-size: 27px;
+      margin-bottom: 8px;
+    }
+
+    .quick-link strong {
+      display: block;
+    }
+
+    /* GENERAL */
+    section {
+      padding: 90px 7%;
+    }
+
+    .section-header {
+      max-width: 720px;
+      margin-bottom: 45px;
+    }
+
+    .section-header h2 {
+      font-size: 44px;
+      line-height: 1.15;
+      color: var(--navy);
+      margin-bottom: 15px;
+    }
+
+    .section-header p {
+      color: var(--gray);
+      font-size: 18px;
+    }
+
+    /* ABOUT */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+      max-width: 1250px;
+      margin: auto;
+    }
+
+    .about-image {
+      height: 470px;
+      border-radius: 10px;
+      background:
+        url("https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1000&q=80")
+        center/cover;
+    }
+
+    .about-text h2 {
+      font-size: 44px;
+      color: var(--navy);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      color: var(--gray);
+      margin-bottom: 18px;
+    }
+
+    /* PROGRAMS */
+    .programs-section {
+      background: var(--light);
+    }
+
+    .program-grid {
+      max-width: 1250px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .program-card {
+      background: white;
+      padding: 32px;
+      border-radius: 8px;
+      border-top: 5px solid var(--gold);
+      box-shadow: 0 5px 20px rgba(0,0,0,.06);
+      transition: .25s;
+    }
+
+    .program-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 30px rgba(0,0,0,.12);
+    }
+
+    .program-card h3 {
+      color: var(--navy);
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    .program-card p {
+      color: var(--gray);
+      margin-bottom: 18px;
+    }
+
+    .program-card a {
+      color: var(--blue);
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    /* STATS */
+    .stats {
+      background: var(--navy);
+      color: white;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      text-align: center;
+      gap: 20px;
+    }
+
+    .stat h3 {
+      color: var(--gold);
+      font-size: 45px;
+      margin-bottom: 5px;
+    }
+
+    .stat p {
+      color: #d8e2ef;
+    }
+
+    /* CAMPUS */
+    .campus-grid {
+      max-width: 1250px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      grid-template-rows: 250px 250px;
+      gap: 18px;
+    }
+
+    .campus-card {
+      border-radius: 9px;
+      overflow: hidden;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .campus-card:first-child {
+      grid-row: span 2;
+      background-image:
+        url("https://images.unsplash.com/photo-1576495199011-eb94736d05d6?auto=format&fit=crop&w=1000&q=80");
+    }
+
+    .campus-card:nth-child(2) {
+      background-image:
+        url("https://images.unsplash.com/photo-1519452575417-564c1401ecc0?auto=format&fit=crop&w=800&q=80");
+    }
+
+    .campus-card:nth-child(3) {
+      background-image:
+        url("https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80");
+    }
+
+    .campus-card:nth-child(4) {
+      background-image:
+        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80");
+    }
+
+    .campus-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 22px;
+      color: white;
+      background: linear-gradient(transparent, rgba(0,0,0,.8));
+    }
+
+    .campus-overlay h3 {
+      font-size: 22px;
+    }
+
+    /* ADMISSIONS */
+    .admissions {
+      background:
+        linear-gradient(100deg, rgba(0,40,85,.97), rgba(0,87,168,.86)),
+        url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1600&q=80")
+        center/cover;
+      color: white;
+      text-align: center;
+    }
+
+    .admissions-content {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .admissions h2 {
+      font-size: 48px;
+      margin-bottom: 18px;
+    }
+
+    .admissions p {
+      color: #e6edf6;
+      font-size: 19px;
+      margin-bottom: 30px;
+    }
+
+    /* NEWS */
+    .news-grid {
+      max-width: 1250px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .news-card {
+      border: 1px solid #e1e5ea;
+      border-radius: 8px;
+      overflow: hidden;
+      background: white;
+    }
+
+    .news-image {
+      height: 190px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .news-card:nth-child(1) .news-image {
+      background-image: url("https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80");
+    }
+
+    .news-card:nth-child(2) .news-image {
+      background-image: url("https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80");
+    }
+
+    .news-card:nth-child(3) .news-image {
+      background-image: url("https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=800&q=80");
+    }
+
+    .news-content {
+      padding: 25px;
+    }
+
+    .news-content small {
+      color: var(--blue);
+      font-weight: bold;
+    }
+
+    .news-content h3 {
+      color: var(--navy);
+      margin: 10px 0;
+    }
+
+    .news-content p {
+      color: var(--gray);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #001b3a;
+      color: white;
+      padding: 65px 7% 25px;
+    }
+
+    .footer-grid {
+      max-width: 1250px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 50px;
+    }
+
+    footer h3 {
+      margin-bottom: 18px;
+      color: var(--gold);
+    }
+
+    footer p {
+      color: #c8d3df;
+    }
+
+    footer ul {
+      list-style: none;
+    }
+
+    footer li {
+      margin-bottom: 9px;
+    }
+
+    footer a {
+      color: #dce5ee;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      max-width: 1250px;
+      margin: 45px auto 0;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,.15);
+      color: #aebdcc;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* MOBILE */
+    @media (max-width: 850px) {
+      nav {
+        padding: 0 5%;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        width: 100%;
+        background: var(--navy);
+        flex-direction: column;
+        padding: 25px;
+        gap: 18px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu {
+        display: block;
+      }
+
+      .quick-links {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .quick-link:nth-child(2) {
+        border-right: none;
+      }
+
+      .quick-link:nth-child(-n+2) {
+        border-bottom: 1px solid #ddd;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .program-grid,
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .campus-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 220px);
+      }
+
+      .campus-card:first-child {
+        grid-row: auto;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .hero {
+        min-height: 600px;
+      }
+
+      .hero h1 {
+        font-size: 46px;
+      }
+
+      .quick-links {
+        width: 92%;
+      }
+
+      section {
+        padding: 65px 5%;
+      }
+
+      .section-header h2,
+      .about-text h2 {
+        font-size: 35px;
+      }
+
+      .admissions h2 {
+        font-size: 36px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="logo">
+      <div class="logo-mark">NP</div>
+      <span>SUNY NEW PALTZ</span>
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="academics.html">Academics</a></li>
+      <li><a href="#campus">Campus Life</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#admissions" class="nav-button">Apply Now</a></li>
+    </ul>
+
+    <div class="menu" onclick="toggleMenu()">☰</div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-content">
+      <div class="eyebrow">Welcome to New Paltz</div>
+
+      <h1>Find Your Place. Shape Your Future.</h1>
+
+      <p>
+        Discover a vibrant academic community where creativity,
+        curiosity, and opportunity come together in the Hudson Valley.
+      </p>
+
+      <div class="buttons">
+        <a href="#admissions" class="btn btn-primary">Start Your Journey</a>
+        <a href="#academics" class="btn btn-outline">Explore Academics</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- QUICK LINKS -->
+  <div class="quick-links">
+    <a href="#admissions" class="quick-link">
+      <div class="icon">🎓</div>
+      <strong>Admissions</strong>
+      <span>Start your application</span>
+    </a>
+
+    <a href="#academics" class="quick-link">
+      <div class="icon">📚</div>
+      <strong>Academics</strong>
+      <span>Explore our programs</span>
+    </a>
+
+    <a href="#campus" class="quick-link">
+      <div class="icon">🏫</div>
+      <strong>Campus Life</strong>
+      <span>Experience New Paltz</span>
+    </a>
+
+    <a href="#visit" class="quick-link">
+      <div class="icon">📍</div>
+      <strong>Visit Campus</strong>
+      <span>See it for yourself</span>
+    </a>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about">
+
+      <div class="about-image"></div>
+
+      <div class="about-text">
+        <div class="eyebrow">Why New Paltz?</div>
+
+        <h2>A college experience built around you.</h2>
+
+        <p>
+          At SUNY New Paltz, students are encouraged to ask questions,
+          challenge assumptions, and turn their ideas into action.
+        </p>
+
+        <p>
+          Located in the heart of the Hudson Valley, our campus combines
+          a strong academic foundation with opportunities for research,
+          creativity, leadership, and community engagement.
+        </p>
+
+        <p>
+          Whether you're discovering a new passion or preparing for your
+          future career, you'll find people and programs ready to help
+          you make your mark.
+        </p>
+
+        <a href="#academics" class="btn btn-primary">Discover More</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ACADEMICS -->
+  <section id="academics" class="programs-section">
+
+    <div class="section-header">
+      <div class="eyebrow">Academic Excellence</div>
+      <h2>Explore what inspires you.</h2>
+      <p>
+        Find programs designed to help you develop the knowledge,
+        skills, and confidence to make an impact.
+      </p>
+    </div>
+
+    <div class="program-grid">
+
+      <div class="program-card">
+        <h3>Arts & Design</h3>
+        <p>
+          Explore creativity through visual arts, design, media,
+          theater, music, and other creative disciplines.
+        </p>
+        <a href="#">Explore Programs →</a>
+      </div>
+
+      <div class="program-card">
+        <h3>Business & Economics</h3>
+        <p>
+          Build the analytical, entrepreneurial, and leadership skills
+          needed to navigate a rapidly changing global economy.
+        </p>
+        <a href="#">Explore Programs →</a>
+      </div>
+
+      <div class="program-card">
+        <h3>Education</h3>
+        <p>
+          Prepare to become an educator and community leader through
+          hands-on learning and meaningful field experiences.
+        </p>
+        <a href="#">Explore Programs →</a>
+      </div>
+
+      <div class="program-card">
+        <h3>Science & Engineering</h3>
+        <p>
+          Investigate the world around you through research,
+          experimentation, technology, and problem solving.
+        </p>
+        <a href="#">Explore Programs →</a>
+      </div>
+
+      <div class="program-card">
+        <h3>Liberal Arts</h3>
+        <p>
+          Develop critical thinking and communication skills while
+          exploring ideas across cultures, history, and society.
+        </p>
+        <a href="#">Explore Programs →</a>
+      </div>
+
+      <div class="program-card">
+        <h3>Health & Human Services</h3>
+        <p>
+          Prepare for meaningful careers focused on improving the
+          health and wellbeing of individuals and communities.
+        </p>
+        <a href="#">Explore Programs →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+
+    <div class="stat">
+      <h3>7,000+</h3>
+      <p>Students</p>
+    </div>
+
+    <div class="stat">
+      <h3>100+</h3>
+      <p>Academic Programs</p>
+    </div>
+
+    <div class="stat">
+      <h3>150+</h3>
+      <p>Student Organizations</p>
+    </div>
+
+    <div class="stat">
+      <h3>1</h3>
+      <p>Exceptional Community</p>
+    </div>
+
+  </section>
+
+  <!-- CAMPUS -->
+  <section id="campus">
+
+    <div class="section-header">
+      <div class="eyebrow">Life on Campus</div>
+      <h2>More than a place to learn.</h2>
+      <p>
+        Get involved, make friends, explore the Hudson Valley,
+        and create memories that last well beyond graduation.
+      </p>
+    </div>
+
+    <div class="campus-grid">
+
+      <div class="campus-card">
+        <div class="campus-overlay">
+          <h3>Discover Campus</h3>
+          <p>A community designed for connection.</p>
+        </div>
+      </div>
+
+      <div class="campus-card">
+        <div class="campus-overlay">
+          <h3>Student Life</h3>
+          <p>Find your community.</p>
+        </div>
+      </div>
+
+      <div class="campus-card">
+        <div class="campus-overlay">
+          <h3>Clubs & Organizations</h3>
+          <p>Get involved.</p>
+        </div>
+      </div>
+
+      <div class="campus-card">
+        <div class="campus-overlay">
+          <h3>Hudson Valley</h3>
+          <p>Adventure is nearby.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ADMISSIONS -->
+  <section id="admissions" class="admissions">
+
+    <div class="admissions-content">
+
+      <div class="eyebrow">Your Next Chapter</div>
+
+      <h2>Ready to become a Hawk?</h2>
+
+      <p>
+        Take the next step toward an education that challenges you,
+        supports you, and prepares you for what's ahead.
+      </p>
+
+      <div class="buttons" style="justify-content:center;">
+        <a href="#" class="btn btn-primary">Apply Now</a>
+        <a href="#" class="btn btn-outline">Request Information</a>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- NEWS -->
+  <section id="news">
+
+    <div class="section-header">
+      <div class="eyebrow">What's Happening</div>
+      <h2>News & stories.</h2>
+      <p>
+        Discover the people, ideas, and achievements shaping our campus.
+      </p>
+    </div>
+
+    <div class="news-grid">
+
+      <article class="news-card">
+        <div class="news-image"></div>
+        <div class="news-content">
+          <small>CAMPUS LIFE</small>
+          <h3>Discovering community at New Paltz</h3>
+          <p>
+            Learn how students find connection and belonging through
+            campus organizations and events.
+          </p>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-image"></div>
+        <div class="news-content">
+          <small>ACADEMICS</small>
+          <h3>Learning beyond the classroom</h3>
+          <p>
+            From research opportunities to experiential learning,
+            students turn knowledge into action.
+          </p>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-image"></div>
+        <div class="news-content">
+          <small>COMMUNITY</small>
+          <h3>Making an impact in the Hudson Valley</h3>
+          <p>
+            Explore the many ways students, faculty, and staff
+            contribute to the surrounding community.
+          </p>
+        </div>
+      </article>
+
+    </div>
+
+  </section>
+
+  <!-- VISIT -->
+  <section id="visit" style="background:#f5f7fa;text-align:center;">
+
+    <div class="section-header" style="margin:0 auto 30px;">
+      <div class="eyebrow">Come See Us</div>
+      <h2>Make New Paltz your next destination.</h2>
+      <p>
+        Explore our campus, meet our community, and imagine yourself
+        here.
+      </p>
+    </div>
+
+    <a href="#" class="btn btn-primary">Plan a Visit</a>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="footer-grid">
+
+      <div>
+        <div class="logo" style="margin-bottom:20px;">
+          <div class="logo-mark">NP</div>
+          <span>SUNY NEW PALTZ</span>
+        </div>
+
+        <p>
+          A vibrant university community in the heart of
+          New York's Hudson Valley.
+        </p>
+      </div>
+
+      <div>
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#academics">Academics</a></li>
+          <li><a href="#campus">Campus Life</a></li>
+          <li><a href="#news">News</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Admissions</h3>
+        <ul>
+          <li><a href="#">Apply</a></li>
+          <li><a href="#">Visit</a></li>
+          <li><a href="#">Financial Aid</a></li>
+          <li><a href="#">Contact Admissions</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Connect</h3>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">YouTube</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 SUNY New Paltz — Demo Website</span>
+      <span>New Paltz, New York</span>
+    </div>
+
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        document.getElementById("navLinks").classList.remove("active");
+      });
+    });
+  </script>
+
+</body>
+</html>
+```
