@@ -51,6 +51,11 @@ CSS:
 
 ```
 
+### And, here's a picture of me.
+![A picture of myself.](https://connectnewpaltz.atriumcampus.com/loadatriumimg.php?cid=87&person_id=49451&skey=b7545dc714161239b1b0ec4cca93e5ab)  
+
+(As part of the assignment, not just for no reason)
+
 
 
 
