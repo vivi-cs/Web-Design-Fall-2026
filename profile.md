@@ -29,6 +29,30 @@ This is the repository for my **Web Design** class in the Fall 2026 school year.
 - W3Schools - a completely free online resource to learn code: [W3Schools](https://www.w3schools.com/)
 - NeoCities - a website where you can host and view other people's websites, all for free: [NeoCities](https://neocities.org/)
 
+### Extra
+HTML:  
+
+`` <span class="heart"></span>  ``
+
+CSS:  
+
+``` body {
+     
+  background: #fff;
+  font-size: 3em;
+  text-align: center;
+  
+}
+
+.heart:before {
+  content: '\2665';
+  color: red;
+}
+
+```
+
+
+
 
 
 
