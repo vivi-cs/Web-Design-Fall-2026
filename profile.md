@@ -18,6 +18,13 @@ This is the repository for my **Web Design** class in the Fall 2026 school year.
 - I have a semi-advanced grasp of **HTML** and **Python coding**, but nothing super fancy.
 - I've fiddled around in VSCodium a bit prior to this class, as I used it & **Python** to create a basic skeleton for a game.
 
+### Task List
+- [x] Create repository
+- [x] Add basic files
+- [x] Introduce myself
+- [ ] Finish midterm project
+
+
 
 
 
