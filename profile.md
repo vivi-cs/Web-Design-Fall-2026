@@ -25,9 +25,9 @@ This is the repository for my **Web Design** class in the Fall 2026 school year.
 - [ ] Finish midterm project
 
 ### External Links
-- My GitHub Profile: [GitHub](https://github.com/vivi-cs)
-- W3Schools - a completely free online resource to learn code: [W3Schools](https://www.w3schools.com/)
-- NeoCities - a website where you can host and view other people's websites, all for free: [NeoCities](https://neocities.org/)
+- **My GitHub Profile**: [GitHub](https://github.com/vivi-cs)
+- **W3Schools** - a *completely free* online resource to learn code: [W3Schools](https://www.w3schools.com/)
+- **NeoCities** - a website where you can host and view other people's websites, *all for free*: [NeoCities](https://neocities.org/)
 
 ### Extra
 HTML:  
